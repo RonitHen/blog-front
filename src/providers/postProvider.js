@@ -22,8 +22,7 @@ export function PostProvider({ children }) {
   };
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    fetchPosts(); }, []);
 
   const getPost = async (postId) => {
     try {
@@ -39,9 +38,8 @@ export function PostProvider({ children }) {
 
   const addPost = async (post) => {
     try {
-      const res = await axios.post("http://localhost:4000/api/posts", post, {
-        withCredentials: true,
-      });
+      const res = await axios.post("http://localhost:4000/api/posts", post,
+      );
       await fetchPosts();
       alert(res.data.message);
     } catch (error) {
@@ -53,8 +51,7 @@ export function PostProvider({ children }) {
     try {
       const res = await axios.put(
         `http://localhost:4000/api/posts/${updatedPost.id}`,
-        updatedPost,
-        { withCredentials: true }
+        updatedPost
       );
       await fetchPosts();
       alert(res.data.message);
@@ -66,8 +63,7 @@ export function PostProvider({ children }) {
   const removePost = async (postId) => {
     try {
       const res = await axios.delete(
-        `http://localhost:4000/api/posts/${postId}`,
-        { withCredentials: true }
+        `http://localhost:4000/api/posts/${postId}`
       );
       await fetchPosts();
       setPosts(posts.filter((post) => postId !== post.id));

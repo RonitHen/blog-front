@@ -9,7 +9,7 @@ export function PostCard({singlePost}) {
     const {user} = useContext(UserContext);
     const {removePost} = useContext(PostContext);
 
-    const handleRemovePost = (event) => {
+    const handleRemovePost = () => {
         removePost(singlePost.id);
     }
 
