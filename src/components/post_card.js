@@ -2,7 +2,6 @@ import {Link} from "react-router-dom";
 import {useContext} from "react";
 import {UserContext} from "../providers/userProvider";
 import '../styles/post_card.css';
-import '../styles/pages.css';
 import {PostContext} from "../providers/postProvider";
 
 
@@ -10,7 +9,7 @@ export function PostCard({singlePost}) {
     const {user} = useContext(UserContext);
     const {removePost} = useContext(PostContext);
 
-    const handleRemovePost = () => {
+    const handleRemovePost = (event) => {
         removePost(singlePost.id);
     }
 
@@ -23,12 +22,11 @@ export function PostCard({singlePost}) {
             </div>
 
             {/*Only if the user is admin let him edit or delete a post*/}
-
             {user &&
                 // (user.admin &&
                 <div className="post-buttons">
-                    <Link to={`/editPost/${singlePost.id}`}>Edit</Link>
-                    <button onClick={handleRemovePost}>Delete</button>
+                    <button type="button"><Link to={`/editPost/${singlePost.id}`}>Edit</Link></button>
+                    <button type="button" onClick={handleRemovePost}>Delete</button>
                 </div>
             // )
             }

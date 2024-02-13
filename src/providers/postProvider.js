@@ -37,9 +37,6 @@ export function PostProvider({ children }) {
     }
   };
 
-  // const addPost = (newPost) => {
-  //     setPosts([newPost, ...posts])
-  // }
   const addPost = async (post) => {
     try {
       const res = await axios.post("http://localhost:4000/api/posts", post, {

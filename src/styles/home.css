@@ -1,0 +1,70 @@
+.tabs {
+    padding: 0px;
+    margin: 0px 300px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-flow: wrap;
+    align-content: center;
+    width: auto;
+    flex: none;
+
+    list-style: none;
+    gap: 30px;
+
+}
+.tabs div:hover {
+    background-color: #2f5e84;}
+
+.tabs .homeTab {
+    background-color: rgba(49, 105, 169, 0.68);
+    color: azure;
+    border-radius: 8px;
+    font-size: 25px;
+    text-align: center;
+    padding: 30px 40px;
+    margin: 10px 5px 5px 5px;
+    width: 200px;
+    opacity: 0.9;
+
+}
+
+.tabs .aboutTab {
+    background-color: rgba(49, 105, 169, 0.68);
+    color: azure;
+    border-radius: 8px;
+    font-size: 25px;
+    text-align: center;
+    padding: 30px 40px;
+    margin: 10px 5px 5px 5px;
+    width: 200px;
+}
+.tabs .postsTab {
+    background-color: rgba(49, 105, 169, 0.68);
+    color: azure;
+    border-radius: 8px;
+    font-size: 25px;
+    text-align: center;
+    padding: 30px 40px;
+    margin: 10px 5px 5px 5px;
+    width: 200px;
+}
+.tabs .contactTab {
+    background-color: rgba(49, 105, 169, 0.68);
+    color: azure;
+    border-radius: 8px;
+    font-size: 25px;
+    text-align: center;
+    padding: 30px 40px;
+    margin: 10px 5px 5px 5px;
+    width: 200px;
+}
+
+.tabs .homeTab Link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+}
+
+

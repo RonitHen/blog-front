@@ -1,0 +1,11 @@
+.post-page {
+    opacity: 100%;
+}
+.post-img {
+    z-index: 6;
+    opacity: 9;
+    border-radius: 10px;
+}
+.title-box {
+    opacity: 0.8;
+}

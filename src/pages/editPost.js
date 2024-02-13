@@ -4,34 +4,43 @@ import {useForm} from "react-hook-form";
 import {UserContext} from "../providers/userProvider";
 import {useParams, useNavigate} from "react-router-dom";
 import '../styles/pages.css'
+
 export function EditPost() {
 
-    const {posts, setEditPosts, getPost: getPost} = useContext(PostContext);
+    const {posts, setPosts} = useContext(PostContext);
     const {user} = useContext(UserContext);
     const {id} = useParams();
-    const originalPost = getPost(id);
-    const {register, handleSubmit, formState: {errors}, reset} = useForm({
-        defaultValues: originalPost
-    });
+    const [initialPost, setInitialPost] = useState();
+    const {getPost, updatePost} = useContext(PostContext);
+    const {register, handleSubmit, formState: {errors}, reset} = useForm(defaultValues: originalPost});
+    const navigate = useNavigate()
 
-    /*
-     When the admin edited a post here we update the properties of the object that
-     handle the edited post
-     */
-    const handelEditPost = (dataToEdit) => {
-        const editedPost = {
-            title: dataToEdit.title,
-            body: dataToEdit.body,
-            id: id,
-            date: dataToEdit.date,
+    useEffect(() => {
+        const fetchPostData = async () => {
+            try {
+                const originalPost = await getPost(id);
+                setInitialPost(originalPost)
+                setValue("title", originalPost.title);
+                setValue("body", originalPost.body);
+                setValue("date", originalPost.date);
+                setValue("created_by", originalPost.created_by);
+            } catch (error) {
+                console.error("Error fetching post data:", error);
+            }
+        };
+        fetchPostData(); }, []);
+
+            const handelEditPost = (data) => {
+            const editedPost = {
+                ...initialPost,
+                title: data.title,
+                body: data.body,
+                date: data.date,
+                created_by: data.created_by
+            }
+            updatePost(editedPost);
+            navigate("/posts");
         }
-
-        const updatePosts = posts.map((post) => String(post.id) === id ? editedPost : post)
-        setEditPosts(updatePosts)
-
-        reset();
-    }
-
 
     return (
         <div>

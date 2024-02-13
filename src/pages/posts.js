@@ -21,17 +21,13 @@ export function Posts() {
 
         return (
     <div>
-        <div className="flag-container"></div>
         <div className={"title-area"}>
             <div className="title-box">
-                <h2>Here is the list of my posts!</h2>
+                <h1>These are our Iron Souls:</h1>
                 <PostList />
                 <h5>There are {posts.length} Posts</h5>
             </div>
         </div>
-
-        {/*<button>load more posts</button>*/}
-
     </div>
   );
 }

@@ -9,7 +9,7 @@ export function Header() {
     return(
         <header>
             <nav>
-                <Link to="/" className="logo">| RH |</Link>
+                <Link to="/" className="logo">| IronSouls |</Link>
 
                     <ul className="nav-links">
                         <li><Link to="/">Home</Link></li>

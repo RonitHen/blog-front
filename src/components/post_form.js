@@ -3,24 +3,26 @@ import {PostContext} from "../providers/postProvider";
 import {useForm} from "react-hook-form";
 import {v4 as uuidv4 } from "uuid";
 import {UserContext} from "../providers/userProvider";
+import {useNavigate} from "react-router-dom";
 
 export function PostForm() {
 
     const {addPost} = useContext(PostContext);
     const {user} = useContext(UserContext);
     const {register,handleSubmit, formState: {errors}, reset} = useForm();
-
+    const navigate = useNavigate()
 
     // When the admin create a new post here we create an object that handle
     // the new properties of the new post
     const handleNewPost = (newPost) => {
         addPost({
+            id: uuidv4(),
             title: newPost.title,
             body: newPost.body,
-            id: uuidv4(),
             date: newPost.date,
+            posted_by: user.name,
         })
-        reset();
+        navigate("/posts");
     }
 
     return (

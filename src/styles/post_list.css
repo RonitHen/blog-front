@@ -1,0 +1,19 @@
+/* Container for the posts list */
+.posts-list-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px;
+}
+
+/* Posts list styles */
+.posts-list {
+    padding: 0px;
+    margin: 20px 300px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-flow: wrap;
+    align-content: center;
+    width: auto;
+    flex: none;
+}
